@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Altman: The Architect of Modern AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        section {
+            padding: 5rem 10%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        #home {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://global-citizen.com/wp-content/uploads/2025/03/107418094-1716321352537-gettyimages-2153474140-AFP_34TH9TC-scaled.jpeg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #0066cc;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #0066cc;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: #0066cc;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .section-img {
+            max-width: 300px;
+            margin: 2rem auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .section-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .achievement-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resources-list {
+            list-style: none;
+        }
+        
+        .resources-list li {
+            margin-bottom: 1rem;
+        }
+        
+        .resources-list a {
+            display: inline-block;
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 1px solid #0066cc;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .resources-list a:hover {
+            background-color: #0066cc;
+            color: #fff;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #0066cc;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid #0066cc;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0066cc;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #fff;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 2rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            section {
+                padding: 5rem 5%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Sam Altman</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#early-life">Early Life</a></li>
+                <li><a href="#y-combinator">Y Combinator</a></li>
+                <li><a href="#openai">OpenAI</a></li>
+                <li><a href="#ventures">Ventures</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home">
+        <img src="https://global-citizen.com/wp-content/uploads/2025/03/107418094-1716321352537-gettyimages-2153474140-AFP_34TH9TC-scaled.jpeg" alt="Sam Altman" class="profile-img">
+        <h1>Sam Altman</h1>
+        <h3>Entrepreneur, Investor, and CEO of OpenAI</h3>
+        <p>Samuel Harris "Sam" Altman, born on April 22, 1985, is a leading American entrepreneur and investor, widely recognized as a pivotal figure in the AI revolution. As the CEO of OpenAI, he has spearheaded the development of groundbreaking technologies like ChatGPT, shaping the future of artificial intelligence.</p>
+    </section>
+
+    <section id="early-life">
+        <h2>Early Life & Career</h2>
+        <p>Born in Chicago and raised in St. Louis, Missouri, Sam Altman's fascination with technology began at age eight with his first Apple Macintosh. He attended Stanford University to study computer science but left after two years in 2005 to co-found Loopt, a mobile social networking service. Loopt raised over $30 million in venture capital before being acquired for $43 million.</p>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>1985</h3>
+                    <p>Born in Chicago, Illinois</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>2005</h3>
+                    <p>Left Stanford University to co-found Loopt</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>2012</h3>
+                    <p>Loopt acquired for $43 million</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="y-combinator">
+        <h2>The Y Combinator Era</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/1200px-Y_Combinator_logo.svg.png" alt="Y Combinator Logo" class="section-img">
+        <p>Altman joined the renowned startup accelerator Y Combinator in 2011 and became its president in 2014. During his leadership until 2019, he significantly expanded YC's scale and influence, aiming to fund 1,000 companies annually. He introduced new programs like YC Continuity to provide long-term support for scaling startups. Under his guidance, YC nurtured iconic companies such as Airbnb, Stripe, Instacart, DoorDash, Reddit, and Twitch, cementing its status as the world's premier startup accelerator.</p>
+        <div class="achievement-card">
+            <h3>Notable YC Companies</h3>
+            <ul>
+                <li>Airbnb</li>
+                <li>Stripe</li>
+                <li>Instacart</li>
+                <li>DoorDash</li>
+                <li>Reddit</li>
+                <li>Twitch</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="openai">
+        <h2>Leadership at OpenAI</h2>
+        <img src="https://logos-world.net/wp-content/uploads/2024/08/open-ai-logo.png" alt="OpenAI Logo" class="section-img">
+        <p>In 2015, Altman co-founded OpenAI with the mission to ensure artificial general intelligence (AGI) benefits all of humanity. As CEO since 2019, he has overseen the development of transformative AI models. Key achievements include the launch of ChatGPT in 2022, which revolutionized public interaction with AI, and the creation of powerful models like GPT-3, GPT-4, and the image generation model DALL-E.</p>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>2015</h3>
+                    <p>Co-founded OpenAI</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>2019</h3>
+                    <p>Became CEO of OpenAI</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>2022</h3>
+                    <p>Launched ChatGPT</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>2023</h3>
+                    <p>Released GPT-4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ventures">
+        <h2>Ventures & Investments</h2>
+        <p>Sam Altman is a prolific investor with a portfolio valued at over $2.8 billion. He is the chairman of nuclear fusion company Helion Energy and nuclear fission company Oklo Inc. He co-founded Worldcoin, a cryptocurrency project using iris biometrics. His major investments include Reddit, Stripe, Airbnb, Neuralink, and Retro Biosciences, a company focused on extending human life.</p>
+        <div class="achievement-card">
+            <h3>Major Investments</h3>
+            <ul>
+                <li>Reddit</li>
+                <li>Stripe</li>
+                <li>Airbnb</li>
+                <li>Neuralink</li>
+                <li>Retro Biosciences</li>
+                <li>Helion Energy</li>
+                <li>Oklo Inc.</li>
+                <li>Worldcoin</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="impact">
+        <h2>Impact & Vision</h2>
+        <p>Altman is a leading voice on the future of AI. He envisions AI as a tool to dramatically accelerate scientific progress and improve quality of life. He describes OpenAI's mission as building a 'brain for the world' and believes AI will lead to an economic transformation. While optimistic, he also advocates for responsible development and has cautioned users about the limitations and potential for 'hallucinations' in current AI models.</p>
+        <div class="achievement-card">
+            <h3>Vision for AI</h3>
+            <p>"AI will be the most impactful technology humanity has ever invented." - Sam Altman</p>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2>Achievements & Awards</h2>
+        <div class="achievement-card">
+            <h3>Time 100</h3>
+            <p>Named one of Time magazine's 100 most influential people in the world (2023 & 2024).</p>
+        </div>
+        <div class="achievement-card">
+            <h3>Honorary Degree</h3>
+            <p>Awarded an honorary degree from the University of Waterloo (2017).</p>
+        </div>
+        <div class="achievement-card">
+            <h3>Y Combinator Impact</h3>
+            <p>Led Y Combinator to help launch nearly 1,900 companies.</p>
+        </div>
+        <div class="achievement-card">
+            <h3>OpenAI Leadership</h3>
+            <p>Co-founded and leads OpenAI, developer of ChatGPT and DALL-E.</p>
+        </div>
+        <div class="achievement-card">
+            <h3>Entrepreneurial Success</h3>
+            <p>Co-founded Loopt, which was acquired for $43 million.</p>
+        </div>
+    </section>
+
+    <section id="resources">
+        <h2>Resources</h2>
+        <ul class="resources-list">
+            <li><a href="https://samaltman.com" target="_blank">Sam Altman's Blog</a></li>
+            <li><a href="https://openai.com" target="_blank">OpenAI Official Website</a></li>
+            <li><a href="https://www.ycombinator.com" target="_blank">Y Combinator</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Sam_Altman" target="_blank">Wikipedia Page</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Website created by Pokee. Information gathered on July 7, 2025.</p>
+    </footer>
+
+    <a href="#home" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
